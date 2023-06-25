@@ -5096,7 +5096,7 @@ debug_bestHdop = bestHdop;
 
   // fixed beacon, or if smartbeaconing with lost gps fix (but had at least one gps fix).
   // smartbeaconing also ensures correct next_fixed_beacon time
-  if (lora_tx_enabled && !dont_send_own_position_packets && millis() >= next_fixed_beacon &&
+  if (lora_tx_enabled && millis() >= next_fixed_beacon &&
        (fixed_beacon_enabled ||
        ((!gps_state || !gps_isValid) && t_last_smart_beacon_sent && t_last_smart_beacon_sent + sb_max_interval < millis()) ) ) {
       nextTX = sb_max_interval;
